@@ -16,7 +16,7 @@
 
 - type: mastodon
   icon: 'fab fa-mastodon'
-  url: ''                     # e.g. https://infosec.exchange/@username
+  url:                        # fill in: e.g. https://infosec.exchange/@username
 # Uncomment and complete the url below to enable more contact options
 #
 # (mastodon already enabled above)
