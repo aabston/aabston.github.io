@@ -3,7 +3,7 @@
 {
   "name": "SEC.LOG",
   "short_name": "SEC.LOG",
-  "description": "A technical blog covering penetration testing, CTF writeups, vulnerability research, and exploit development.",
+  "description": "A technical blog covering cryptology, CTF writeups, security research.",
   "icons": [
     {
       "src": "/assets/img/favicons/web-app-manifest-192x192.png",
