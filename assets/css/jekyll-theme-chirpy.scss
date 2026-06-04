@@ -51,10 +51,10 @@ div.highlight {
   border-color: var(--link-color);
 }
 
-/* Avatar: cyan glow on hover */
+/* Avatar: blue glow on hover */
 #sidebar #avatar:hover {
   box-shadow: 0 0 0 3px var(--link-color),
-    0 0 16px rgb(88 196 220 / 25%);
+    0 0 16px rgb(96 165 250 / 25%);
 }
 
 /* Sidebar nav links: inherit active color from variable */

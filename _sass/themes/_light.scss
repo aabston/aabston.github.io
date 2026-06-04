@@ -12,8 +12,8 @@
   --label-color: #585858;
   --blockquote-border-color: #eeeeee;
   --blockquote-text-color: #757575;
-  --link-color: #006d80;
-  --link-underline-color: #b2d8e0;
+  --link-color: #1d4ed8;
+  --link-underline-color: #bfdbfe;
   --button-bg: #ffffff;
   --btn-border-color: #e9ecef;
   --btn-backtotop-color: #686868;
@@ -29,16 +29,16 @@
   );
 
   /* Sidebar */
-  --site-title-color: #58c4dc;
-  --site-subtitle-color: #2ea043;
-  --sidebar-bg: #0d1f2d;
-  --sidebar-border-color: #1a3448;
-  --sidebar-muted-color: #7a9bb0;
-  --sidebar-active-color: #58c4dc;
-  --sidebar-hover-bg: rgb(88 196 220 / 12%);
-  --sidebar-btn-bg: #162638;
-  --sidebar-btn-color: #8aabb8;
-  --avatar-border-color: rgb(88 196 220 / 50%);
+  --site-title-color: #60a5fa;
+  --site-subtitle-color: #818cf8;
+  --sidebar-bg: #0f1f3d;
+  --sidebar-border-color: #1e3a6e;
+  --sidebar-muted-color: #6b8fba;
+  --sidebar-active-color: #60a5fa;
+  --sidebar-hover-bg: rgb(96 165 250 / 12%);
+  --sidebar-btn-bg: #162846;
+  --sidebar-btn-color: #6b8fba;
+  --avatar-border-color: rgb(96 165 250 / 50%);
 
   /* Topbar */
   --topbar-bg: rgb(255 255 255 / 70%);
@@ -53,10 +53,10 @@
   --btn-paginator-hover-color: var(--sidebar-bg);
 
   /* Posts */
-  --toc-highlight: #006d80;
+  --toc-highlight: #2563eb;
   --toc-popup-border-color: lightgray;
   --btn-share-color: gray;
-  --btn-share-hover-color: #006d80;
+  --btn-share-hover-color: #2563eb;
   --card-bg: white;
   --card-hover-bg: #e2e2e2;
   --card-shadow: rgb(104 104 104 / 5%) 0 2px 6px 0,
@@ -87,11 +87,11 @@
   /* Categories */
   --categories-border: rgb(0 0 0 / 12.5%);
   --categories-hover-bg: var(--btn-border-color);
-  --categories-icon-hover-color: #006d80;
+  --categories-icon-hover-color: #1d4ed8;
 
   /* Archive */
   --timeline-color: rgb(0 0 0 / 7.5%);
-  --timeline-node-bg: #006d80;
+  --timeline-node-bg: #3b82f6;
   --timeline-year-dot-color: #ffffff;
 
   /* --- Custom code light mode colors --- */
