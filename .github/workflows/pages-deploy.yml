@@ -42,6 +42,15 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Build Assets
+        run: npm install && npm run build
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:

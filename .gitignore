@@ -40,5 +40,6 @@ run_local.sh
 *.pem
 *.key
 
-# PWA dist (generated)
+# Generated assets (built by npm run build, never committed)
 assets/js/dist/
+_sass/vendors/
