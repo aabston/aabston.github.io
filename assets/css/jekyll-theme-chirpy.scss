@@ -1,0 +1,74 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ===== Security Blog Custom Styles ===== */
+
+/* Blinking terminal cursor after site title */
+#sidebar .site-title::after {
+  content: '_';
+  animation: cursor-blink 1.2s step-end infinite;
+  margin-left: 1px;
+  color: var(--site-title-color);
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Terminal-style left accent on code blocks */
+div.highlight {
+  border-left: 3px solid var(--toc-highlight);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Post card hover: accent left border */
+.post-preview {
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s ease-in-out;
+
+  &:hover {
+    border-left-color: var(--link-color);
+  }
+}
+
+/* Tag hover: accent border */
+.post-tag:hover {
+  border-color: var(--link-color);
+}
+
+/* Avatar: cyan glow on hover */
+#sidebar #avatar:hover {
+  box-shadow: 0 0 0 3px var(--link-color),
+    0 0 16px rgb(88 196 220 / 25%);
+}
+
+/* Sidebar nav links: inherit active color from variable */
+#sidebar ul li.nav-item.active .nav-link {
+  color: var(--sidebar-active-color);
+}
+
+/* Light mode: sidebar text readable on dark sidebar */
+html[data-mode='light'] #sidebar {
+  color: var(--sidebar-muted-color);
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-mode]) #sidebar {
+    color: var(--sidebar-muted-color);
+  }
+}
