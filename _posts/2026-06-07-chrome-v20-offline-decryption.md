@@ -57,7 +57,7 @@ Chrome stores credentials in SQLite databases under the user profile:
 Offline decryption requires the masterkey file and one of: the user's Windows logon password, NT hash, or SHA1 hash. With those in hand, [dpapick3](https://github.com/mis-team/dpapick) or `impacket-dpapi.py` can perform the full decryption chain without touching a live Windows API.
 
 
-![Chrome v10 offline decryption workflow](./2026-06-07-chrome-v20-offline-decryption/img/decryption_process_v10.svg)
+![Chrome v10 offline decryption workflow](/assets/img/post_chrome-offline-decryption/decryption_process_v10.png)
 *Figure 1: Chrome v10 offline decryption workflow — Local State → DPAPI masterkey → AES-GCM credential recovery.*
 
 At phase 1, Chrome decrypts the browser key (`os_crypt.encrypted_key`) using the `CryptUnprotectData` API under the current user context. To replicate this offline, you need the encrypted DPAPI master key (`%APPDATA%\Microsoft\Protect\{SID}\`) and user credentials (SID + password, NT hash, or SHA1 hash). The `dpapick3` module handles decryption:
@@ -95,7 +95,7 @@ The v10 model has one fundamental flaw: it's **user-context DPAPI only**. Any pr
 
 There are numerous offline Chrome decryptors (e.g. https://github.com/wat4r/ChromeDecryptor); however, they are unable to decrypt modern Chrome encryption:
 
-![Chrome v20 decryption](./2026-06-07-chrome-v20-offline-decryption/img/failed_decrypt.png)
+![Chrome v20 decryption](/assets/img/post_chrome-offline-decryption//failed_decrypt.png)
 *Figure 2: Attempting to decrypt a Chrome v20 credential offline*
 
 As shown above, despite no errors, the password is not decrypted correctly.
@@ -136,7 +136,7 @@ Two things fundamentally changed from v10:
 | Chrome 137+ | N/A | Additional CNG KSP layer (flag=3) or extra hardcoded encryption layer |
 
 
-![Chrome v20 ABE architecture](./2026-06-07-chrome-v20-offline-decryption/img/decryption_process_v20.svg)
+![Chrome v20 ABE architecture](/assets/img/post_chrome-offline-decryption/decryption_process_v20.png)
 *Figure 3: Chrome v20 ABE architecture — dual DPAPI layers, Elevation Service path validation, Chrome 137+ PostProcessData.*
 
 ### 3.2 Elevation Service Decryption Flow
@@ -201,7 +201,7 @@ chrome_key_flag3 = AES.new(key2, AES.MODE_GCM, nonce=iv).decrypt_and_verify(ciph
 
 The v20 encryption scheme also introduces an additional encryption layer tied to the **Microsoft CNG Key Storage Provider (KSP)** — this is the v20 `flag=3` path. The key is identified as `"Google Chromekey1"` in the machine's CNG KSP, stored under `C:\ProgramData\Microsoft\Crypto\SystemKeys\` (verify exact path on your target — machine-scope keys may also appear in `%ProgramData%\Microsoft\Crypto\Keys\`).
 
-![CNG KSP decryption](./2026-06-07-chrome-v20-offline-decryption/img/ksp_decryption.svg)
+![CNG KSP decryption](/assets/img/post_chrome-offline-decryption/ksp_decryption.png)
 *Figure 4: Decryption of ChromeKey1 from KSP.*
 
 To decrypt **ChromeKey1** offline, you need the harvested KSP storage file and the SYSTEM DPAPI key:
@@ -277,10 +277,10 @@ Start by downloading the PoC implementation: *https://github.com/aabston/chrome-
 
 Before running the decryption, set up a Windows 10/11 machine with an admin account, install the latest Chrome browser, and save a test login/password in the password manager:
 
-![New Chrome](./2026-06-07-chrome-v20-offline-decryption/img/chrome.png)
+![New Chrome](/assets/img/post_chrome-offline-decryption/chrome.png)
 *Figure 5: Chrome installed on the test machine.*
 
-![Credentials](./2026-06-07-chrome-v20-offline-decryption/img/creds.png)
+![Credentials](/assets/img/post_chrome-offline-decryption/creds.png)
 *Figure 6: Test credentials saved in Chrome's password manager.*
 
 Next, collect the following artifacts:
@@ -299,12 +299,12 @@ impacket-secretsdump -security security.bin -system system.bin local
 ```
 (you need the exact **dpapi_userkey** value).
 
-![Retrieve SYSTEM DPAPI key](./2026-06-07-chrome-v20-offline-decryption/img/secretsdump.png)
+![Retrieve SYSTEM DPAPI key](/assets/img/post_chrome-offline-decryption/secretsdump.png)
 *Figure 7: impacket-secretsdump output showing the DPAPI system key.*
 
 
 With the artifacts and keys in hand, you can now decrypt the site credentials:
-![Decrypt creds](./2026-06-07-chrome-v20-offline-decryption/img/success_decrypt.png)
+![Decrypt creds](/assets/img/post_chrome-offline-decryption/success_decrypt.png)
 *Figure 8: Successful offline decryption of site credentials.*
 
 As shown above, passwords and cookies are successfully decrypted offline — no Windows API calls, no process injection, no suspicious activity on the target.
