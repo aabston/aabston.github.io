@@ -43,3 +43,5 @@ run_local.sh
 # Generated assets (built by npm run build, never committed)
 assets/js/dist/
 _sass/vendors/
+_site/**
+*-swp

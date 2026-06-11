@@ -4,7 +4,7 @@ title: "Chrome v20 Offline Password Decryption on Windows"
 date: 2026-06-11
 categories: [security, research, windows]
 tags: [chrome, dpapi, app-bound-encryption, forensics, red-team, dfir, windows]
-author: "Alfred Abston"
+author: 
 description: "A technical deep-dive into Chrome's Application-Bound Encryption architecture and the offline decryption workflow for security researchers, penetration testers, and DFIR practitioners."
 ---
 
@@ -292,6 +292,8 @@ Next, collect the following artifacts:
 Export the registry hives:
 - *system.bin* - `reg save hklm\system system.bin`
 - *security.bin* - `reg save hklm\security security.bin`
+
+Actually, you don't need do the steps above by yourself for testing because they have been done by me and artifacts are already in <https://github.com/aabston/chrome-decrypt-offline/tree/main/samples/sample_chrome_v20>.
 
 Then retrieve the SYSTEM DPAPI key:
 ```
