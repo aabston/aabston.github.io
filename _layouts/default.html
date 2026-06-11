@@ -19,6 +19,10 @@ layout: compress
   <body>
     {% include sidebar.html lang=lang %}
 
+    <button type="button" id="sidebar-fold-btn" aria-label="Collapse sidebar" title="Collapse sidebar">
+      <i class="fas fa-chevron-left fa-fw"></i>
+    </button>
+
     <div id="main-wrapper" class="d-flex justify-content-center">
       <div class="container d-flex flex-column px-xxl-5">
         {% include topbar.html lang=lang %}
@@ -34,6 +38,9 @@ layout: compress
 
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
+            <button type="button" id="panel-fold-btn" aria-label="Collapse panel" title="Collapse panel">
+              <i class="fas fa-chevron-right fa-fw"></i>
+            </button>
             <div class="access">
               {% include_cached update-list.html lang=lang %}
               {% include_cached trending-tags.html lang=lang %}
@@ -82,5 +89,72 @@ layout: compress
     {% endfor %}
 
     {% include_cached search-loader.html lang=lang %}
+
+    <button type="button" id="panel-expand-tab" aria-label="Expand panel" title="Expand panel">
+      <i class="fas fa-chevron-left fa-fw"></i>
+    </button>
+
+    <script>
+    (function () {
+      var LS_SIDEBAR = 'sidebar-folded';
+      var LS_PANEL = 'panel-folded';
+
+      /* --- Sidebar fold (desktop only) --- */
+      var $sidebarBtn = document.getElementById('sidebar-fold-btn');
+
+      function applySidebar(folded) {
+        document.body.toggleAttribute('sidebar-folded', folded);
+        if ($sidebarBtn) {
+          $sidebarBtn.querySelector('i').className =
+            folded ? 'fas fa-chevron-right fa-fw' : 'fas fa-chevron-left fa-fw';
+          $sidebarBtn.title = folded ? 'Expand sidebar' : 'Collapse sidebar';
+        }
+      }
+
+      if ($sidebarBtn) {
+        applySidebar(localStorage.getItem(LS_SIDEBAR) === '1');
+        $sidebarBtn.addEventListener('click', function () {
+          var folded = !document.body.hasAttribute('sidebar-folded');
+          applySidebar(folded);
+          localStorage.setItem(LS_SIDEBAR, folded ? '1' : '0');
+        });
+      }
+
+      /* --- Panel fold (xl+ only) --- */
+      var $panelBtn = document.getElementById('panel-fold-btn');
+      var $expandTab = document.getElementById('panel-expand-tab');
+      var $main = document.querySelector('#main-wrapper main');
+
+      function applyPanel(folded) {
+        document.body.toggleAttribute('panel-folded', folded);
+        if ($main) {
+          $main.classList.toggle('col-xl-9', !folded);
+          $main.classList.toggle('col-xl-12', folded);
+        }
+        if ($expandTab) { $expandTab.style.display = folded ? 'flex' : 'none'; }
+        if ($panelBtn) {
+          $panelBtn.querySelector('i').className =
+            folded ? 'fas fa-chevron-left fa-fw' : 'fas fa-chevron-right fa-fw';
+          $panelBtn.title = folded ? 'Expand panel' : 'Collapse panel';
+        }
+      }
+
+      if ($panelBtn && $main) {
+        applyPanel(localStorage.getItem(LS_PANEL) === '1');
+        $panelBtn.addEventListener('click', function () {
+          var folded = !document.body.hasAttribute('panel-folded');
+          applyPanel(folded);
+          localStorage.setItem(LS_PANEL, folded ? '1' : '0');
+        });
+      }
+
+      if ($expandTab) {
+        $expandTab.addEventListener('click', function () {
+          applyPanel(false);
+          localStorage.setItem(LS_PANEL, '0');
+        });
+      }
+    })();
+    </script>
   </body>
 </html>

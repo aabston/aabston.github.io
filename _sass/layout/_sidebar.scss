@@ -256,3 +256,76 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     }
   }
 }
+
+/* ── Desktop sidebar fold ─────────────────────────────────── */
+
+/* Smooth transitions on desktop */
+@include bp.lg {
+  #sidebar {
+    transition: transform 0.4s ease;
+    -webkit-transition: transform 0.4s ease;
+  }
+
+  #main-wrapper {
+    transition: margin-left 0.4s ease;
+  }
+}
+
+/* Toggle tab — right edge of sidebar, desktop only */
+#sidebar-fold-btn {
+  display: none;
+
+  @include bp.lg {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: v.$sidebar-width;
+    transform: translateY(-50%);
+    z-index: 1040;
+    width: 1.25rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: var(--sidebar-bg);
+    border: 1px solid var(--sidebar-border-color);
+    border-left: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    color: var(--sidebar-btn-color);
+    transition: left 0.4s ease;
+
+    &:hover {
+      color: var(--sidebar-active-color);
+    }
+  }
+
+  @include bp.xxxl {
+    left: v.$sidebar-width-large;
+  }
+}
+
+/* Folded state (desktop only) */
+[sidebar-folded] {
+  @include bp.lg {
+    #sidebar {
+      transform: translateX(-#{v.$sidebar-width});
+      -webkit-transform: translateX(-#{v.$sidebar-width});
+    }
+
+    #main-wrapper {
+      margin-left: 0;
+    }
+
+    #sidebar-fold-btn {
+      left: 0;
+    }
+  }
+
+  @include bp.xxxl {
+    #sidebar {
+      transform: translateX(-#{v.$sidebar-width-large});
+      -webkit-transform: translateX(-#{v.$sidebar-width-large});
+    }
+  }
+}

@@ -4,7 +4,7 @@ title: "Chrome v20 Offline Password Decryption on Windows"
 date: 2026-06-11
 categories: [security, research, windows]
 tags: [chrome, dpapi, app-bound-encryption, forensics, red-team, dfir, windows]
-author: Alfred Abston
+author: "Alfred Abston"
 description: "A technical deep-dive into Chrome's Application-Bound Encryption architecture and the offline decryption workflow for security researchers, penetration testers, and DFIR practitioners."
 ---
 
@@ -325,22 +325,24 @@ And if you're a defender reading this: every artifact in the collection checklis
 
 ## 6. References
 
-1. Andrew Gomez (SpecterOps), "Dough No! Revisiting Cookie Theft," August 2025. <https://specterops.io/blog/2025/08/27/dough-no-revisiting-cookie-theft/>
+1. Chrome ABE(v20) offline decryption Proof-of-Concept, June 2026. <https://github.com/aabston/chrome-decrypt-offline>
 
-2. CyberArk Research, "C4 Bomb: Blowing Up Chrome's AppBound Cookie Encryption," 2025. <https://www.cyberark.com/resources/threat-research-blog/c4-bomb-blowing-up-chromes-appbound-cookie-encryption>
+2. Andrew Gomez (SpecterOps), "Dough No! Revisiting Cookie Theft," August 2025. <https://specterops.io/blog/2025/08/27/dough-no-revisiting-cookie-theft/>
 
-3. xaitax, "Chrome-App-Bound-Encryption-Decryption — RESEARCH.md," GitHub, 2025. <https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption/blob/main/docs/RESEARCH.md>
+3. CyberArk Research, "C4 Bomb: Blowing Up Chrome's AppBound Cookie Encryption," 2025. <https://www.cyberark.com/resources/threat-research-blog/c4-bomb-blowing-up-chromes-appbound-cookie-encryption>
 
-4. Tijl Deneut, "diana — offline Chromium credential decryption," GitHub. <https://github.com/tijldeneut/diana>
+4. xaitax, "Chrome-App-Bound-Encryption-Decryption — RESEARCH.md," GitHub, 2025. <https://github.com/xaitax/Chrome-App-Bound-Encryption-Decryption/blob/main/docs/RESEARCH.md>
 
-5. Sergey Gordeychik et al., "dpapick3," GitHub. <https://github.com/mis-team/dpapick>
+5. Tijl Deneut, "diana — offline Chromium credential decryption," GitHub. <https://github.com/tijldeneut/diana>
 
-6. GhostPack, "SharpDPAPI," GitHub. <https://github.com/GhostPack/SharpDPAPI>
+6. Sergey Gordeychik et al., "dpapick3," GitHub. <https://github.com/mis-team/dpapick>
 
-7. @gentilkiwi, "mimikatz," GitHub. <https://github.com/gentilkiwi/mimikatz>
+7. GhostPack, "SharpDPAPI," GitHub. <https://github.com/GhostPack/SharpDPAPI>
 
-8. Fortra, "impacket," GitHub. <https://github.com/fortra/impacket>
+8. @gentilkiwi, "mimikatz," GitHub. <https://github.com/gentilkiwi/mimikatz>
 
-9. @runassu, "chrome_v20_decryption," GitHub. <https://github.com/runassu/chrome_v20_decryption/blob/main/decrypt_chrome_v20_cookie.py>
+9. Fortra, "impacket," GitHub. <https://github.com/fortra/impacket>
 
-10. wat4r, "ChromeDecryptor," GitHub. <https://github.com/wat4r/ChromeDecryptor>
+10. @runassu, "chrome_v20_decryption," GitHub. <https://github.com/runassu/chrome_v20_decryption/blob/main/decrypt_chrome_v20_cookie.py>
+
+11. wat4r, "ChromeDecryptor," GitHub. <https://github.com/wat4r/ChromeDecryptor>

@@ -68,3 +68,67 @@
     @extend %no-bottom-border;
   }
 }
+
+/* ── Panel fold ───────────────────────────────────────────── */
+
+/* Collapse button — top of panel, xl+ only */
+#panel-fold-btn {
+  display: none;
+
+  @include bp.xl {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.4rem 0.25rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: var(--text-muted-color);
+    font-size: 0.8rem;
+
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+}
+
+/* Expand tab — floats on right edge when panel is folded */
+#panel-expand-tab {
+  display: none; /* JS sets this to flex when folded */
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1040;
+  width: 1.25rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border-color);
+  border-right: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  cursor: pointer;
+  color: var(--sidebar-btn-color);
+
+  &:hover {
+    color: var(--sidebar-active-color);
+  }
+
+  /* Never show on screens where the panel doesn't exist */
+  @include bp.lt(bp.get(xl)) {
+    display: none !important;
+  }
+}
+
+/* Folded state */
+[panel-folded] {
+  #panel-wrapper {
+    @include bp.xl {
+      display: none;
+    }
+  }
+}
