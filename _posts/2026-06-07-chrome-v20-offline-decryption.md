@@ -273,7 +273,7 @@ impacket-secretsdump -system system.bin -security security.bin LOCAL
 
 ## 4. Proof-of-Concept Demonstration
 
-Start by downloading the PoC implementation: *https://github.com/aabston/chrome-decrypt-offline*.
+Start by downloading the [PoC implementation](https://github.com/aabston/chrome-decrypt-offline).
 
 Before running the decryption, set up a Windows 10/11 machine with an admin account, install the latest Chrome browser, and save a test login/password in the password manager:
 
