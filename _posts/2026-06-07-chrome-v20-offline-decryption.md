@@ -10,6 +10,7 @@ description: "A technical deep-dive into Chrome's Application-Bound Encryption a
 
 > **Disclaimer:** This article is for security research and educational purposes only. All techniques described come from existing public research. Use only on systems you own or have explicit permission to examine. Provided as-is, with no warranties of any kind.
 
+The post is also mirrored to [medium](https://medium.com/@alfred.abston/chrome-abe-v20-offline-password-decryption-on-windows-b26a8d857900)
 ---
 
 # Chrome v20 Offline Password Decryption on Windows
