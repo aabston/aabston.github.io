@@ -78,12 +78,12 @@ The high-level flow for establishing a secure implant-to-C2 channel looks like t
 ```
 Implant                                   C2 server
   |                                           |
-  | <-- n (Rabin public key, hardcoded) ---   | (baked in at build time)
+  | <-- n (Hardcoded public key       ) ---   | (baked in at build time)
   |                                           |
   | generate symkey                           |
-  | ciphertext = rabin_encrypt(symkey, n)     |
+  | ciphertext = asym _encrypt(symkey, n)     |
   |------- ciphertext ----------------------->|
-  |                                           | symkey = rabin_decrypt(ciphertext, p, q)
+  |                                           | symkey = asym_decrypt(ciphertext, p, q)
   |<========= AES/ChaCha20 encrypted data ===>|
 ```
 
@@ -117,7 +117,7 @@ On the C2 side the same shared secret can be derived: $s' := Y^x \bmod p$. They 
 
 $$s = X^y \bmod p = (g^x)^y \bmod p = g^{xy} \bmod p = Y^x \bmod p = s'$$
 
-> I deliberately omit strict security requirements — "safe" prime $p$, CSPRNG, etc. — because in red teaming we want a compact, hidden implementation with adequate security, not a FIPS-certified one.
+> I deliberately omit strict security requirements — "strong" prime, when $\frac{p-1}{2}$ is prime as well, CSPRNG, etc. — because in red teaming we want a compact, hidden implementation with adequate security, not a FIPS-certified one.
 
 As you can see, the implant needs at minimum a random number generator and big-integer modular exponentiation — which in turn requires big-integer addition, subtraction, multiplication, and modulo reduction. RSA has essentially the same footprint. Optimizations like Karatsuba multiplication or Montgomery reduction can help, but they increase code size further (trust me, I tried).
 
