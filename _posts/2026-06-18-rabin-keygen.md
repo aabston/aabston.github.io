@@ -11,6 +11,8 @@ description: "A practical walkthrough of encryption choices for red team implant
 
 > **Disclaimer:** This article is for security research, authorized penetration testing, and educational purposes only. Don't use this against systems you don't own or have explicit written authorization to test. No ready-to-use malware or evasion techniques will be provided.
 
+The post is also mirrored to [medium](https://medium.com/@alfred.abston/lightweight-asymmetric-encryption-for-c2-implants-a-red-teamers-guide-from-xor-to-rabin-42e9b6b275d6?source=friends_link&sk=a8b1132678909ff0f00f5b8ff4f8b62b)
+
 
 # 1. Objectives
 
