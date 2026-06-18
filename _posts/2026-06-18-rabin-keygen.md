@@ -4,6 +4,7 @@ title: "Lightweight Asymmetric Encryption for C2 Implants: A Red Teamer's Guide 
 date: 2026-06-18
 categories: [security, cryptography, redteaming]
 tags: [cryptography, red-team, encryption]
+math: true
 author: 
 description: "A practical walkthrough of encryption choices for red team implants — from XOR and AES-CTR to Rabin key encapsulation — with a self-contained C implementation and no external dependencies."
 ---
