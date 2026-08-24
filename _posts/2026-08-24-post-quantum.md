@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "Post-Quantum Cryptography Without the Math PhD"
-date: 2026-08-23
+date: 2026-08-24
 categories: [security, cryptography, post-quantum]
 tags: [cryptography, encryption, post-quantum]
 math: true
 author: 
 description: "Under the hood of post-quantum encryption, without (almost) any Greek letters"
 ---
-
+This article is also available on Medium: https://medium.com/@alfred.abston/post-quantum-cryptography-without-the-math-phd-185b288e3799
 
 # Introduction
 
