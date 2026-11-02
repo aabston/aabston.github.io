@@ -216,7 +216,7 @@ As you can see, no suspicious functions are intercepted. There is no visible chi
 
 # 4. References
 
-1. <a id="ref-1"></a>[fortra/CreateProcess — process creation PoC](https://github.com/fortra/CreateProcess)
-2. <a id="ref-2"></a>[Exploring HellsGate — RedOps research](https://redops.at/research/exploring-hells-gate/)
-3. <a id="ref-3"></a>[API Monitor — API call monitoring tool](https://github.com/jozefizso/apimonitor)
-4. <a id="ref-4"></a>[Author's raw-syscall process creation PoC](https://github.com/aabston/raw-syscall-exec)
+1. <span id="ref-1"></span>[fortra/CreateProcess — process creation PoC](https://github.com/fortra/CreateProcess)
+2. <span id="ref-2"></span>[Exploring HellsGate — RedOps research](https://redops.at/research/exploring-hells-gate/)
+3. <span id="ref-3"></span>[API Monitor — API call monitoring tool](https://github.com/jozefizso/apimonitor)
+4. <span id="ref-4"></span>[Author's raw-syscall process creation PoC](https://github.com/aabston/raw-syscall-exec)
