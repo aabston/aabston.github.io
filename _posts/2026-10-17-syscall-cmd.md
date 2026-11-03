@@ -11,6 +11,7 @@ description: "A comprehensive explanation of how to execute a PE with no importe
 
 > **Disclaimer:** This article is for security research, authorized penetration testing, and educational purposes only. Do not use this against systems you don't own or have explicit written authorization to test. No ready-to-use malware or evasion techniques will be provided.
 
+[This article is also available on Medium](https://medium.com/@alfred.abston/how-to-spawn-a-process-with-raw-syscalls-only-a8c90f404e05?postPublishedType=initial)
 
 # 1. Objectives
 
